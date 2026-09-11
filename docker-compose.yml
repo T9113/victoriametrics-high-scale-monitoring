@@ -1,0 +1,10 @@
+version: '3.5'
+services:
+  victoriametrics:
+    image: victoriametrics/victoria-metrics:v1.96.0
+    container_name: victoriametrics
+    ports: ["8428:8428"]
+    volumes: ["vmdata:/victoria-metrics-data"]
+    command: ["-storageDataPath=/victoria-metrics-data", "-retentionPeriod=12m"]
+volumes:
+  vmdata: {}
